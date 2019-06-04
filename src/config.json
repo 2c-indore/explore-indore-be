@@ -1,0 +1,547 @@
+{
+	"port": 5080,
+	"jwt": {
+		"expiresIn": "1y"
+	},
+	"template":{
+	    "dir":"./resources/templates/mailtemplates"
+	},
+	"bodyLimit": "100kb",
+	"corsHeaders": ["Link"],
+	"amenities": [{
+		"name": "Veterinaries",
+		"sheetName": "Veterinary",
+		"key": "veterinaries"
+	}, {
+		"name": "Bus Stops",
+		"sheetName": "Bus Stop",
+		"key": "bus_stops"
+	}, {
+		"name": "Public Clinics and Government Centers",
+		"sheetName": "Tertiary HCS",
+		"key": "public_clinics"
+	},{
+		"name": "Public Clinics and Government Centers",
+		"sheetName": "Secondary HCS",
+		"key": "public_clinics"
+	},{
+		"name": "Public Clinics and Government Centers",
+		"sheetName": "AYUSH",
+		"key": "public_clinics"
+	},{
+		"name": "Public Hospitals",
+		"sheetName": "Primary HCS",
+		"key": "public_hospitals"
+	}, {
+		"name": "Private Hospitals",
+		"sheetName": "Private Hospitals",
+		"key": "private_hospitals"
+	}, {
+		"name": "Dental Clinics",
+		"sheetName": "Dental Clinics",
+		"key": "dentists"
+	}, {
+		"name": "Mental Health Centers",
+		"sheetName": "Mental Health",
+		"key": "mental_health_centers"
+	}, {
+		"name": "Pathology and Radiology Labs",
+		"sheetName": "Labs",
+		"key": "patho_radio_labs"
+	}, {
+		"name": "Blood Banks",
+		"sheetName": "Blood Bank",
+		"key": "blood_banks"
+	}, {
+		"name": "Anganwadis",
+		"sheetName": "Aanganwadi",
+		"key": "anganwadi"
+	}],
+	"parameters": {
+		"public_hospitals": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}, {
+			"label": "Select Facilities",
+			"options": [{
+				"value": "OPD",
+				"label": "OPD",
+				"database_schema_key": "opd"
+			}, {
+				"value": "IPD",
+				"label": "IPD",
+				"database_schema_key": "ipd"
+			}, {
+				"value": "Radiology",
+				"label": "Radiology",
+				"database_schema_key": "radiology_labs"
+			}, {
+				"value": "Pathology",
+				"label": "Pathology",
+				"database_schema_key": "pathology_labs"
+			}, {
+				"value": "Delivery Service",
+				"label": "Delivery Service",
+				"database_schema_key": "delivery_service"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}],
+		"public_clinics": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}, {
+			"label": "Select Facilities",
+			"options": [{
+				"value": "OPD",
+				"label": "OPD",
+				"database_schema_key": "opd"
+			}, {
+				"value": "IPD",
+				"label": "IPD",
+				"database_schema_key": "ipd"
+			}, {
+				"value": "Radiology",
+				"label": "Radiology",
+				"database_schema_key": "radiology_labs"
+			}, {
+				"value": "Pathology",
+				"label": "Pathology",
+				"database_schema_key": "pathology_labs"
+			}, {
+				"value": "Delivery Service",
+				"label": "Delivery Service",
+				"database_schema_key": "delivery_service"
+			},{
+				"value": "Operation Theater",
+				"label": "Operation Theater",
+				"database_schema_key": "ot"
+			}, {
+				"value": "Ventilator",
+				"label": "Ventilator",
+				"database_schema_key": "ventilator"
+			}, {
+				"value": "Radiology",
+				"label": "Radiology",
+				"database_schema_key": "radiology_labs"
+			}, {
+				"value": "Pathology",
+				"label": "Pathology",
+				"database_schema_key": "pathology_labs"
+			}, {
+				"value": "Ambulance",
+				"label": "Ambulance",
+				"database_schema_key": "ambulance"
+			}, {
+				"value": "Blood bank",
+				"label": "Blood bank",
+				"database_schema_key": "blood_bank"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}],
+		"Secondary HCS": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}, {
+			"label": "Select Facilities",
+			"options": [{
+				"value": "Operation Theater",
+				"label": "Operation Theater",
+				"database_schema_key": "ot"
+			}, {
+				"value": "Ventilator",
+				"label": "Ventilator",
+				"database_schema_key": "ventilator"
+			}, {
+				"value": "Radiology",
+				"label": "Radiology",
+				"database_schema_key": "radiology_labs"
+			}, {
+				"value": "Pathology",
+				"label": "Pathology",
+				"database_schema_key": "pathology_labs"
+			}, {
+				"value": "Ambulance",
+				"label": "Ambulance",
+				"database_schema_key": "ambulance"
+			}, {
+				"value": "Blood bank",
+				"label": "Blood bank",
+				"database_schema_key": "blood_bank"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}],
+		"Tertiary HCS": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}, {
+			"label": "Select Facilities",
+			"options": [{
+				"value": "Operation Theater",
+				"label": "Operation Theater",
+				"database_schema_key": "ot"
+			}, {
+				"value": "Ventilator",
+				"label": "Ventilator",
+				"database_schema_key": "ventilator"
+			}, {
+				"value": "Radiology",
+				"label": "Radiology",
+				"database_schema_key": "radiology_labs"
+			}, {
+				"value": "Pathology",
+				"label": "Pathology",
+				"database_schema_key": "pathology_labs"
+			}, {
+				"value": "Ambulance",
+				"label": "Ambulance",
+				"database_schema_key": "ambulance"
+			}, {
+				"value": "Blood bank",
+				"label": "Blood bank",
+				"database_schema_key": "blood_bank"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}],
+		"AYUSH": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
+		"veterinaries": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
+		"Clinics": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
+		"dentists": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
+		"patho_radio_labs": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
+		"anganwadi": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
+		"private_hospitals": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Select Bed Capacity",
+			"type": "range",
+			"parameter_name": "Bed Capacity",
+			"database_schema_key": "bed_count",
+			"isInsight": true
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}, {
+			"label": "Select Facilities",
+			"options": [{
+				"value": "OPD",
+				"label": "OPD",
+				"database_schema_key": "opd"
+			}, {
+				"value": "IPD",
+				"label": "IPD",
+				"database_schema_key": "ipd"
+			}, {
+				"value": "Lab Tests",
+				"label": "Lab Tests",
+				"database_schema_key": "lab_tests"
+			}, {
+				"value": "Fixed Day Service",
+				"label": "Fixed Day Service",
+				"database_schema_key": "fixed_day_service"
+			}, {
+				"value": "Delivery Service",
+				"label": "Delivery Service",
+				"database_schema_key": "delivery_service"
+			}, {
+				"value": "Blood bank",
+				"label": "Blood bank",
+				"database_schema_key": "blood_bank"
+			}, {
+				"value": "Operation Theater",
+				"label": "Operation Theater",
+				"database_schema_key": "ot"
+			}, {
+				"value": "Ventilator",
+				"label": "Ventilator",
+				"database_schema_key": "ventilator"
+			}, {
+				"value": "Radiology",
+				"label": "Radiology",
+				"database_schema_key": "radiology_labs"
+			}, {
+				"value": "Pathology",
+				"label": "Pathology",
+				"database_schema_key": "pathology_labs"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}, {
+			"label": "Select Special Services",
+			"options": [{
+				"value": "Audiologist",
+				"label": "Audiologist",
+				"database_schema_key": "audiologist"
+			}, {
+				"value": "Allergist",
+				"label": "Allergist",
+				"database_schema_key": "allergist"
+			}, {
+				"value": "Anesthesiologist",
+				"label": "Anesthesiologist",
+				"database_schema_key": "anesthesiologist"
+			}, {
+				"value": "Cardiologist",
+				"label": "Cardiologist",
+				"database_schema_key": "cardiologist"
+			}, {
+				"value": "Dentist",
+				"label": "Dentist",
+				"database_schema_key": "dentist"
+			}, {
+				"value": "Dermatilogist",
+				"label": "Dermatilogist",
+				"database_schema_key": "dermatologist"
+			}, {
+				"value": "Endocrinologist",
+				"label": "Endocrinologist",
+				"database_schema_key": "endocrinologist"
+			}, {
+				"value": "Epidemiologist",
+				"label": "Epidemiologist",
+				"database_schema_key": "epidemiologist"
+			}, {
+				"value": "Gynecologist",
+				"label": "Gynecologist",
+				"database_schema_key": "gynecologist"
+			}, {
+				"value": "Immunologist",
+				"label": "Immunologist",
+				"database_schema_key": "immunologist"
+			}, {
+				"value": "Infectious Disease",
+				"label": "Infectious Disease",
+				"database_schema_key": "infectious_disease"
+			}, {
+				"value": "Internal Medicine",
+				"label": "Internal Medicine",
+				"database_schema_key": "internal_medicine"
+			}, {
+				"value": "Medical Geneticist",
+				"label": "Medical Geneticist",
+				"database_schema_key": "medical_geneticist"
+			}, {
+				"value": "Microbiologist",
+				"label": "Microbiologist",
+				"database_schema_key": "microbiologist"
+			}, {
+				"value": "Neonatologist",
+				"label": "Neonatologist",
+				"database_schema_key": "neonatologist"
+			}, {
+				"value": "Neurologist",
+				"label": "Neurologist",
+				"database_schema_key": "neurologist"
+			}, {
+				"value": "Obstetrician",
+				"label": "Obstetrician",
+				"database_schema_key": "obstetrician"
+			}, {
+				"value": "Oncologist",
+				"label": "Oncologist",
+				"database_schema_key": "oncologist"
+			}, {
+				"value": "Ophthalmologist",
+				"label": "Ophthalmologist",
+				"database_schema_key": "ophthalmologist"
+			}, {
+				"value": "ENT",
+				"label": "ENT",
+				"database_schema_key": "ENT"
+			}, {
+				"value": "Pediatrician",
+				"label": "Pediatrician",
+				"database_schema_key": "pediatrician"
+			}, {
+				"value": "Physiologist",
+				"label": "Physiologist",
+				"database_schema_key": "physiologist"
+			}, {
+				"value": "Plastic Surgeon",
+				"label": "Plastic Surgeon",
+				"database_schema_key": "plastic_surgeon"
+			}, {
+				"value": "Podiatrist",
+				"label": "Podiatrist",
+				"database_schema_key": "podiatrist"
+			}, {
+				"value": "Psychiatrist",
+				"label": "Psychiatrist",
+				"database_schema_key": "psychiatrist"
+			}, {
+				"value": "Radiologist",
+				"label": "Radiologist",
+				"database_schema_key": "radiologist"
+			}, {
+				"value": "Rheumatologist",
+				"label": "Rheumatologist",
+				"database_schema_key": "rheumatologist"
+			}, {
+				"value": "Urologist",
+				"label": "Urologist",
+				"database_schema_key": "urologist"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}],
+		"blood_banks": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Select Facilities",
+			"options": [{
+				"value": "Transfusion",
+				"label": "Transfusion",
+				"database_schema_key": "transfusion"
+			}, {
+				"value": "Platelets",
+				"label": "Platelets",
+				"database_schema_key": "platelets"
+			}, {
+				"value": "Complete",
+				"label": "Complete",
+				"database_schema_key": "complete"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}],
+		"IMC": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
+		"bus_stops": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Select Type",
+			"options": [{
+				"value": "Intercity",
+				"label": "Intercity",
+				"database_schema_key": "connectivity"
+			}, {
+				"value": "Inter-state",
+				"label": "Inter-state",
+				"database_schema_key": "connectivity"
+			}],
+			"type": "multi-select",
+			"boolean": true,
+			"parameter_name": "facilities"
+		}],
+		"mental_health_centers": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}]
+	}
+}

@@ -1,0 +1,35 @@
+name: accountregistered
+subject: | Account Registered
+
+link(href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet")
+
+table(align='center', cellpadding='0', cellspacing='0', width='100%', style='border:0px solid #ddd; font-family: "Lato", sans-serif;')
+  tr
+    td(align='center')
+      table(width='700px', style='background-color:#FFF;')
+        tr
+          td(align='center', style='padding: 15px 0;')
+            h2
+              .bold(style="font-weight:600;color:#7b7b7b;font-size:35px;")
+                | Explore Indore
+        tr
+          td(style='padding:20px 20px 10px 20px; color:#7b7b7b;font: 18px Lucida Grande, Helvetica, Arial, sans-serif;font-weight:600;')
+            | Dear #{maildata.receiver},
+        tr
+          td(style='padding:0px 20px 0px 20px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#757575;font-size:15px;line-height:1.7em;text-align:left;font-weight:none')
+            | Thank you for registering with Explore Indore. Your verification code is 
+            strong
+              | #{maildata.verificationCode}
+         
+        tr(height='80px;')
+          td(align='center')
+            table(width='700px', style='background-color:#3E77F6;')
+              tr
+                td(align='right', style='padding:20px 20px 20px 20px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#fff;font-size:13px;font-weight:300;letter-spacing:0.1em;')
+                  | Explore Indore © 2019
+        tr
+          td(align='center' style="color:#7b7b7b;")
+            | Download our app from the Google Playstore
+            br
+            a(href='' target='_blank')
+              img(src='https://dl.dropboxusercontent.com/s/inat523hkanw8fb/button_playstore.png')

@@ -1,0 +1,71 @@
+{
+  "name": "indore-portal",
+  "version": "0.3.0",
+  "description": "Starter project for an ES6 RESTful Express API",
+  "main": "dist",
+  "scripts": {
+    "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
+    "build": "babel src -s -D -d dist --presets es2015,stage-0",
+    "start": "node dist",
+    "prestart": "npm run -s build",
+    "test": "eslint src",
+    "importdata": "node src/scripts/importData.js",
+    "populatedata": "node src/scripts/populateDatabase.js",
+    "apidocs": "apidoc -i src/api/ -o apidocs/"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/developit/express-es6-rest-api.git"
+  },
+  "author": "Jason Miller <jason@developit.ca>",
+  "license": "MIT",
+  "dependencies": {
+    "@turf/turf": "^5.1.6",
+    "apidoc": "^0.17.7",
+    "app-root-path": "^2.2.1",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.13.3",
+    "compression": "^1.5.2",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "express-jwt": "^5.3.1",
+    "generate-password": "^1.4.1",
+    "google-caja": "0.0.2",
+    "google-spreadsheet-to-json": "^1.0.0",
+    "json2csv": "^4.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.11",
+    "mongoose-timestamp": "^0.6.0",
+    "morgan": "^1.8.0",
+    "nodemailer": "^6.2.1",
+    "proc-utils": "^1.0.0",
+    "resource-router-middleware": "^0.6.0",
+    "template-notify": "0.0.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.1.1",
+    "nodemon": "^1.9.2"
+  },
+  "bugs": {
+    "url": "https://github.com/developit/express-es6-rest-api/issues"
+  },
+  "homepage": "https://github.com/developit/express-es6-rest-api#readme"
+}

@@ -1,0 +1,6 @@
+/dist
+/logs
+/npm-debug.log
+/node_modules
+.DS_Store
+src/secret_config.json
