@@ -124,8 +124,8 @@ export default ({ config, db }) => {
      api.put("/admin/users/toggleadmin/:id", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.toggleAdmin, mw.respond, mw.error);
 
      /**
-     * @api {put} /api/admin/users/deactivate/:id Deactivate user [* Admin Protected]
-     * @apiName Deactivate user
+     * @api {delete} /api/admin/users/delete/:id Delete user [* Admin Protected]
+     * @apiName Delete user
      * @apiGroup Admin
 
      * @apiSuccess {Integer} success Success status
@@ -140,16 +140,16 @@ export default ({ config, db }) => {
      *
      *  {
         *       "success": 1,
-        *       "message" :"User successfully deactivated!"
+        *       "message" :"User successfully delete!"
         *   }
      *
      *
      *
-     * @apiDescription API to deactivate user
+     * @apiDescription API to delete user
      * @apiVersion 1.0.0
      */
 
-     api.put("/admin/users/deactivate/:id", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.removeUser, mw.respond, mw.error);
+     api.delete("/admin/users/delete/:id", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.deleteUser, mw.respond, mw.error);
 
 	api.post("/users/verify", UsersController.collect, UsersController.verify, mw.respond, mw.error);
 

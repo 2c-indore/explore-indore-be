@@ -46,7 +46,7 @@ export default {
 				$ne: req.user.idn.split("_")[1] // excluding yourself from the self
 			}
 		})
-		.select("role _id email name")
+		.select("role _id email name is_deleted")
 		.then((users)=>{
 			req.cdata = {
 				success :1,
@@ -61,16 +61,14 @@ export default {
 
 	},
 
-	removeUser(req,res,next){
-		Users.update({
+	deleteUser(req,res,next){
+		Users.remove({
 			_id: req.collects.id
-		}, {
-			is_deleted: true
 		})
 		.then((users)=>{
 			req.cdata = {
 				success :1,
-				message : "User is successfully deactivated!"
+				message : "User is successfully deleted!"
 			};
 			return next();
 		})
