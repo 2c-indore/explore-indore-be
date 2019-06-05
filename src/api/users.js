@@ -91,7 +91,7 @@ export default {
 			req.cdata = {
 				success: 1,
 				relogin : true,
-				message: "Password has been updated successfully!"
+				message: "Password has been updated successfully. Please sign in again with your new password to continue."
 			};
 			return next();
 		})
