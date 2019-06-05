@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt";
 import config from "../config.json";
 import secretConfig from "../secret_config.json";
 import proc from "proc-utils";
@@ -7,6 +8,7 @@ import { Users } from "../mongomodels";
 import jwt from "jsonwebtoken";
 
 let fields = ["email", "password", "verificationCode", "name", "newpassword", "oldpassword"];
+const saltRounds = 10;
 
 export default {
 
@@ -36,6 +38,67 @@ export default {
 		.catch((err)=>{
 			return next(err);
 		})
+	},
+
+	verifyOldPassword(req,res,next){
+		const err = proc.utils.required(req.collects, ["oldpassword"]);
+		if (err) return next(err);
+
+		Users.findOne({
+			_id: req.user.idn.split("_")[1]
+		})
+		.then((user) => {
+			if (!user) throw ({
+				success: 0,
+				message: "The user does not exists",
+			});
+			return user.comparePassword(req.collects.oldpassword);
+		})
+		.then((isMatched) => {
+			if (!isMatched) throw ({
+				success: 0,
+				message: "You have entered an invalid old password!",
+			});
+			return next();
+		})
+		.catch((err) => {
+			return next(err);
+		});
+
+	},
+
+	generateHashForPassword(req,res,next){
+		const err = proc.utils.required(req.collects, ["newpassword"]);
+		if (err) return next(err);
+
+		bcrypt.hash(req.collects.newpassword, saltRounds, (err, hash) =>{
+			if(err) console.log(err);
+			req.hashedPassword = hash;
+			return next();
+		});
+	},
+
+	resetPassword(req,res,next){
+		const err = proc.utils.required(req.collects, ["oldpassword", "newpassword"]);
+		if (err) return next(err);
+
+		Users.update({
+			_id: req.user.idn.split("_")[1]
+		}, {
+			password: req.hashedPassword
+		})
+		.then((updated) => {
+			req.cdata = {
+				success: 1,
+				relogin : true,
+				message: "Password has been updated successfully!"
+			};
+			return next();
+		})
+		.catch((err) => {
+			return next(err);
+		});
+
 
 	},
 

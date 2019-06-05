@@ -42,7 +42,34 @@ export default ({ config, db }) => {
 
 	api.post("/users/signup", UsersController.collect, UsersController.signup, Mailer.send, mw.respond, mw.error);
 
-	api.post("/admin/users/create", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.create, Mailer.send, mw.respond, mw.error);
+	/**
+     * @api {post} /api/users/create  Signup user [* Admin Protected]
+     * @apiName Create new user
+     * @apiGroup Admin
+
+     * @apiSuccess {Integer} success Success status
+     * @apiSuccess {string} message Success message
+
+     * @apiSuccessExample {json} Body Parameters Format
+     *  {
+     *      "email" : "email@email.com",
+     *      "name" : "John Doe"
+     *  }
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *
+     *  {
+        *       "success": 1,
+        *       "message" :"User created successfully"
+        *   }
+     *
+     *
+     *
+     * @apiDescription API to create new user
+     * @apiVersion 1.0.0
+     */
+
+     api.post("/admin/users/create", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.create, Mailer.send, mw.respond, mw.error);
 
 	api.post("/users/verify", UsersController.collect, UsersController.verify, mw.respond, mw.error);
 
@@ -90,6 +117,36 @@ export default ({ config, db }) => {
      */
 
 	api.get("/users/profile",expressJwt({secret: secretConfig.jwt.secret}),UsersController.collect,UsersController.getProfile,mw.respond,mw.error);
+
+
+     /**
+     * @api {put} /api/users/password/reset  Change user password [* Protected]
+     * @apiName Change password
+     * @apiGroup User
+
+     * @apiSuccess {Integer} success Success status
+     * @apiSuccess {string} message Success message
+
+     * @apiSuccessExample {json} Body Parameters Format
+     *  {
+     *      "oldpassword" : "old password",
+     *      "newpassword" : "new password "
+     *  }
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *
+     *  {
+      *        "success": 1,
+      *        "message": "Password successfully changed",
+      *   }
+     *
+     *
+     *
+     * @apiDescription API to change user password
+     * @apiVersion 1.0.0
+     */
+
+     api.put("/users/password/reset",expressJwt({secret: secretConfig.jwt.secret}),UsersController.collect,UsersController.verifyOldPassword,UsersController.generateHashForPassword,UsersController.resetPassword,mw.respond,mw.error);
 
 	/**
      * @api {get} /api/amenities/data Get amenities data
