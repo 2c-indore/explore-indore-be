@@ -45,7 +45,7 @@
   {
     "type": "put",
     "url": "/api/admin/users/deactivate/:id",
-    "title": "Toggle admin role [* Admin Protected]",
+    "title": "Deactivate user [* Admin Protected]",
     "name": "Deactivate_user",
     "group": "Admin",
     "success": {
@@ -88,7 +88,7 @@
   {
     "type": "get",
     "url": "/api/admin/users",
-    "title": "Signup user [* Admin Protected]",
+    "title": "Get users list [* Admin Protected]",
     "name": "Get_users_list",
     "group": "Admin",
     "success": {

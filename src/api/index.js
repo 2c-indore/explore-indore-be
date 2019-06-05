@@ -72,7 +72,7 @@ export default ({ config, db }) => {
      api.post("/admin/users/create", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.create, Mailer.send, mw.respond, mw.error);
 
      /**
-     * @api {get} /api/admin/users  Signup user [* Admin Protected]
+     * @api {get} /api/admin/users Get users list [* Admin Protected]
      * @apiName Get users list
      * @apiGroup Admin
 
@@ -124,7 +124,7 @@ export default ({ config, db }) => {
      api.put("/admin/users/toggleadmin/:id", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.toggleAdmin, mw.respond, mw.error);
 
      /**
-     * @api {put} /api/admin/users/deactivate/:id  Toggle admin role [* Admin Protected]
+     * @api {put} /api/admin/users/deactivate/:id Deactivate user [* Admin Protected]
      * @apiName Deactivate user
      * @apiGroup Admin
 
