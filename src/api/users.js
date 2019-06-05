@@ -61,6 +61,25 @@ export default {
 
 	},
 
+	removeUser(req,res,next){
+		Users.update({
+			_id: req.collects.id
+		}, {
+			is_deleted: true
+		})
+		.then((users)=>{
+			req.cdata = {
+				success :1,
+				message : "User is successfully removed!"
+			};
+			return next();
+		})
+		.catch((err)=>{
+			return next(err);
+		})
+
+	},
+
 	toggleAdmin(req,res,next){
 		const err = proc.utils.required(req.collects, ["id"]);
 		if (err) return next(err);
@@ -278,7 +297,8 @@ export default {
 
 		let authenticatedUser = {};
 		Users.findOne({
-				email: req.collects.email
+				email: req.collects.email,
+				is_deleted: false
 			})
 			.then((user) => {
 				if(!user) throw ({

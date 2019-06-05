@@ -43,10 +43,48 @@ define({ "api": [
     "groupTitle": "Admin"
   },
   {
+    "type": "get",
+    "url": "/api/admin/users",
+    "title": "Signup user [* Admin Protected]",
+    "name": "Get_users_list",
+    "group": "Admin",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Success status</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "\n{\n     \"success\": 1,\n     \"data\" :  users object,\n     \"message\" :\"User created successfully\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "description": "<p>API to get users list</p>",
+    "version": "1.0.0",
+    "filename": "src/api/index.js",
+    "groupTitle": "Admin"
+  },
+  {
     "type": "put",
     "url": "/api/admin/users/toggleadmin/:id",
     "title": "Toggle admin role [* Admin Protected]",
-    "name": "Create_new_user",
+    "name": "Toggle_user_role",
     "group": "Admin",
     "success": {
       "fields": {
@@ -81,44 +119,6 @@ define({ "api": [
       ]
     },
     "description": "<p>API to update user role</p>",
-    "version": "1.0.0",
-    "filename": "src/api/index.js",
-    "groupTitle": "Admin"
-  },
-  {
-    "type": "get",
-    "url": "/api/admin/users",
-    "title": "Signup user [* Admin Protected]",
-    "name": "Get_users_list",
-    "group": "Admin",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "success",
-            "description": "<p>Success status</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "string",
-            "optional": false,
-            "field": "message",
-            "description": "<p>Success message</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "\n{\n     \"success\": 1,\n     \"data\" :  users object,\n     \"message\" :\"User created successfully\"\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "description": "<p>API to get users list</p>",
     "version": "1.0.0",
     "filename": "src/api/index.js",
     "groupTitle": "Admin"

@@ -97,7 +97,7 @@ export default ({ config, db }) => {
 
      /**
      * @api {put} /api/admin/users/toggleadmin/:id  Toggle admin role [* Admin Protected]
-     * @apiName Create new user
+     * @apiName Toggle user role
      * @apiGroup Admin
 
      * @apiSuccess {Integer} success Success status
