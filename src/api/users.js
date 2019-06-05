@@ -70,7 +70,7 @@ export default {
 		.then((users)=>{
 			req.cdata = {
 				success :1,
-				message : "User is successfully removed!"
+				message : "User is successfully deactivated!"
 			};
 			return next();
 		})

@@ -43,6 +43,49 @@ define({ "api": [
     "groupTitle": "Admin"
   },
   {
+    "type": "put",
+    "url": "/api/admin/users/deactivate/:id",
+    "title": "Toggle admin role [* Admin Protected]",
+    "name": "Deactivate_user",
+    "group": "Admin",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Success status</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Route Parameters Format",
+          "content": "{\n    \"id\" : \"2e32332op8837h2\",\n}",
+          "type": "json"
+        },
+        {
+          "title": "Success-Response:",
+          "content": "\n{\n     \"success\": 1,\n     \"message\" :\"User successfully deactivated!\"\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "description": "<p>API to deactivate user</p>",
+    "version": "1.0.0",
+    "filename": "src/api/index.js",
+    "groupTitle": "Admin"
+  },
+  {
     "type": "get",
     "url": "/api/admin/users",
     "title": "Signup user [* Admin Protected]",

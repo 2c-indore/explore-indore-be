@@ -123,6 +123,34 @@ export default ({ config, db }) => {
 
      api.put("/admin/users/toggleadmin/:id", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.toggleAdmin, mw.respond, mw.error);
 
+     /**
+     * @api {put} /api/admin/users/deactivate/:id  Toggle admin role [* Admin Protected]
+     * @apiName Deactivate user
+     * @apiGroup Admin
+
+     * @apiSuccess {Integer} success Success status
+     * @apiSuccess {string} message Success message
+
+     * @apiSuccessExample {json} Route Parameters Format
+     *  {
+     *      "id" : "2e32332op8837h2",
+     *  }
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *
+     *  {
+        *       "success": 1,
+        *       "message" :"User successfully deactivated!"
+        *   }
+     *
+     *
+     *
+     * @apiDescription API to deactivate user
+     * @apiVersion 1.0.0
+     */
+
+     api.put("/admin/users/deactivate/:id", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.removeUser, mw.respond, mw.error);
+
 	api.post("/users/verify", UsersController.collect, UsersController.verify, mw.respond, mw.error);
 
 	/**
