@@ -7,7 +7,7 @@ import generatePassword from "generate-password";
 import { Users } from "../mongomodels";
 import jwt from "jsonwebtoken";
 
-let fields = ["email", "password", "verificationCode", "name", "newpassword", "oldpassword"];
+let fields = ["id","email", "password", "verificationCode", "name", "newpassword", "oldpassword"];
 const saltRounds = 10;
 
 export default {
@@ -38,6 +38,54 @@ export default {
 		.catch((err)=>{
 			return next(err);
 		})
+	},
+
+	getUsers(req,res,next){
+		Users.find({
+			_id: {
+				$ne: req.user.idn.split("_")[1] // excluding yourself from the self
+			}
+		})
+		.select("role _id email name")
+		.then((users)=>{
+			req.cdata = {
+				success :1,
+				data: users,
+				message : "Users list fetched!"
+			};
+			return next();
+		})
+		.catch((err)=>{
+			return next(err);
+		})
+
+	},
+
+	toggleAdmin(req,res,next){
+		const err = proc.utils.required(req.collects, ["id"]);
+		if (err) return next(err);
+		Users.findOne({
+			_id: req.collects.id
+		})
+		.then((user)=>{
+			const roleToUpdate = user.role === "admin" ? "general" : "admin";
+			return Users.update({
+				_id: req.collects.id
+			}, {
+				role: roleToUpdate
+			})
+		})
+		.then((updated)=>{
+			req.cdata = {
+				success :1,
+				message : "Role updated!"
+			};
+			return next();
+		})
+		.catch((err)=>{
+			return next(err);
+		});
+
 	},
 
 	verifyOldPassword(req,res,next){

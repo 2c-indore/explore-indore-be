@@ -71,6 +71,58 @@ export default ({ config, db }) => {
 
      api.post("/admin/users/create", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.create, Mailer.send, mw.respond, mw.error);
 
+     /**
+     * @api {get} /api/admin/users  Signup user [* Admin Protected]
+     * @apiName Get users list
+     * @apiGroup Admin
+
+     * @apiSuccess {Integer} success Success status
+     * @apiSuccess {string} message Success message
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *
+     *  {
+        *       "success": 1,
+        *       "data" :  users object,
+        *       "message" :"User created successfully"
+        *   }
+     *
+     *
+     *
+     * @apiDescription API to get users list
+     * @apiVersion 1.0.0
+     */
+     
+     api.get("/admin/users", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.getUsers, mw.respond, mw.error);
+
+     /**
+     * @api {put} /api/admin/users/toggleadmin/:id  Toggle admin role [* Admin Protected]
+     * @apiName Create new user
+     * @apiGroup Admin
+
+     * @apiSuccess {Integer} success Success status
+     * @apiSuccess {string} message Success message
+
+     * @apiSuccessExample {json} Route Parameters Format
+     *  {
+     *      "id" : "2e32332op8837h2",
+     *  }
+     *
+     * @apiSuccessExample {json} Success-Response:
+     *
+     *  {
+        *       "success": 1,
+        *       "message" :"Role successfully updated!"
+        *   }
+     *
+     *
+     *
+     * @apiDescription API to update user role
+     * @apiVersion 1.0.0
+     */
+
+     api.put("/admin/users/toggleadmin/:id", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.toggleAdmin, mw.respond, mw.error);
+
 	api.post("/users/verify", UsersController.collect, UsersController.verify, mw.respond, mw.error);
 
 	/**
