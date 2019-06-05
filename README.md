@@ -28,4 +28,4 @@ We will be using the git-flow based model to manage changes to the app.
 
 ### Bugs and feature requests
 
-We will be using Github issues to solicit and work on issues and feature requests. To submit an issue or feature request, head over to the [issues section.](https://github.com/2c-indore/explore-indore-fe/issues/new/choose)
+We will be using Github issues to solicit and work on issues and feature requests. To submit an issue or feature request, head over to the [issues section.](https://github.com/2c-indore/explore-indore-be/issues/new/choose)

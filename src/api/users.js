@@ -20,6 +20,25 @@ export default {
 		return next();
 	},
 
+	verifyAdmin(req,res,next){
+		Users.findOne({
+			_id: req.user.idn.split("_")[1]
+		})
+		.then((user)=>{
+			if(user.role !== "admin"){
+				throw({
+					success: 0,
+					message: "Unauthorized access!",
+				})
+			}
+			return next();
+		})
+		.catch((err)=>{
+			return next(err);
+		})
+
+	},
+
 	signup(req, res, next) {
 		const err = proc.utils.required(req.collects, ["email", "password"]);
 		if (err) return next(err);

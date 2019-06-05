@@ -42,7 +42,7 @@ export default ({ config, db }) => {
 
 	api.post("/users/signup", UsersController.collect, UsersController.signup, Mailer.send, mw.respond, mw.error);
 
-	api.post("/admin/users/create", UsersController.collect, UsersController.create, Mailer.send, mw.respond, mw.error);
+	api.post("/admin/users/create", expressJwt({secret: secretConfig.jwt.secret}), UsersController.verifyAdmin, UsersController.collect, UsersController.create, Mailer.send, mw.respond, mw.error);
 
 	api.post("/users/verify", UsersController.collect, UsersController.verify, mw.respond, mw.error);
 
