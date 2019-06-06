@@ -275,7 +275,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Query Parameters Format",
-          "content": "{\n    \"type\" : \"public_hospitals, bus_stops, blood_banks, etc..\",\n}",
+          "content": "{\n    \"type\" : \"public_hospitals, bus_stops, blood_banks, etc..\",\n    \"platform\" : \"mobile\", // for mobile compatible data\n}",
           "type": "json"
         }
       ]

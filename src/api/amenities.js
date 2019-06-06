@@ -12,7 +12,7 @@ const amenities = config.amenities.map((amenity)=>{
 	return amenity.key;
 });
 
-let fields = ["id","data","outputFormat","type"];
+let fields = ["id","data","outputFormat","type","platform"];
 
 
 export default {
@@ -224,6 +224,22 @@ export default {
 		},{});
 		delete req.cdata.wards;
 		return next();
+	},
+
+	mobileCompatible(req,res,next){
+		if(req.collects.platform !== "mobile") return next();
+
+		req.cdata.geometries.pois.features.forEach((feature)=>{
+			feature.properties.tags = Object.keys(feature.properties.tags).map((key)=>{
+				return {
+					"label" : key,
+					"value" : feature.properties.tags[key]
+				}
+			})
+		});
+
+		return next();
+
 	},
 
 	update(req,res,next){

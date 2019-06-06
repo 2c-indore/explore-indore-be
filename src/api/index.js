@@ -239,6 +239,7 @@ export default ({ config, db }) => {
      * @apiSuccessExample {json} Query Parameters Format
      *  {
      *      "type" : "public_hospitals, bus_stops, blood_banks, etc..",
+     *      "platform" : "mobile", // for mobile compatible data
      *  }
      *
      *
@@ -246,7 +247,7 @@ export default ({ config, db }) => {
      * @apiDescription API to get data for amenities
      * @apiVersion 1.0.0
      */
-	api.get('/amenities/data', amenities.collect, amenities.getFeaturesFromDB, amenities.list,amenities.applyFilter,amenities.convertToGeojson,amenities.getWards,amenities.includeFilters, mw.respond ,mw.error);
+	api.get('/amenities/data', amenities.collect, amenities.getFeaturesFromDB, amenities.list,amenities.applyFilter,amenities.convertToGeojson,amenities.getWards,amenities.includeFilters, amenities.mobileCompatible, mw.respond ,mw.error);
 
 	/**
      * @api {get} /api/amenities/download Download amenities data
