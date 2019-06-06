@@ -1,5 +1,6 @@
 {
 	"port": 5080,
+	"webLoginLink" : "http://exploreindore.klldev.org/#/login",
 	"jwt": {
 		"expiresIn": "1y"
 	},

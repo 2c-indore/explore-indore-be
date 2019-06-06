@@ -41,8 +41,8 @@ dataImporter({
 				wardBoundaries.features.forEach((feature) => {
 					const isInside = turf.booleanPointInPolygon(elementCoordinates, feature);
 					if (isInside) {
-						element.value = feature.properties.ward_no;
-						element.label = feature.properties.ward_name;
+						element.ward_no = feature.properties.ward_no;
+						element.ward_name = feature.properties.ward_name;
 					}
 				});
 			}

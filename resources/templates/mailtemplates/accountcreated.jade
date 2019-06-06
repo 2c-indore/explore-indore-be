@@ -11,15 +11,20 @@ table(align='center', cellpadding='0', cellspacing='0', width='100%', style='bor
           td(align='center', style='padding: 15px 0;')
             h2
               .bold(style="font-weight:600;color:#7b7b7b;font-size:35px;")
-                | Explore Indore
+                | Explore Indore Data Visualization Portal
         tr
           td(style='padding:20px 20px 10px 20px; color:#7b7b7b;font: 18px Lucida Grande, Helvetica, Arial, sans-serif;font-weight:600;')
             | Dear #{maildata.receiverName},
         tr
           td(style='padding:0px 20px 0px 20px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#757575;font-size:15px;line-height:1.7em;text-align:left;font-weight:none')
-            | Thank you for registering with Explore Indore. Please visit http://exploreindore.klldev.org/#/login to login. Your login password is  
+            | Your account has been created in Explore Indore data visualization portal. Please visit #[a(href="http://exploreindore.klldev.org/#/login") this link] to login. Your login password is  
             strong 
               |  #{maildata.generatedPassword}
+        tr
+          td
+        tr
+          td(style='padding:0px 20px 0px 20px;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;color:#757575;font-size:15px;line-height:1.7em;text-align:left;font-weight:none')
+            | Make sure that you change your password after getting in for the first time.
          
         tr(height='80px;')
           td(align='center')

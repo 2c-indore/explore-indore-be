@@ -170,7 +170,6 @@ export default {
 	signup(req, res, next) {
 		const err = proc.utils.required(req.collects, ["email", "password"]);
 		if (err) return next(err);
-		let authenticatedUser = {};
 		Users.findOne({
 				email: req.collects.email
 			})
@@ -212,7 +211,6 @@ export default {
 	create(req,res,next){
 		const err = proc.utils.required(req.collects, ["email", "name"]);
 		if (err) return next(err);
-		let authenticatedUser = {};
 		let generatedPassword;
 		Users.findOne({
 				email: req.collects.email
@@ -223,8 +221,8 @@ export default {
 					message: "The user already exists!",
 				});
 				generatedPassword = generatePassword.generate({
-				    length: 10,
-				    numbers: true
+					length: 10,
+					numbers: true
 				});
 				let newUser = new Users({
 					email: req.collects.email,

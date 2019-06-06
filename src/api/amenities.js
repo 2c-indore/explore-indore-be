@@ -90,7 +90,7 @@ export default {
 			if(req.query[possibleFilter.parameter_name]){
 				if(possibleFilter.parameter_name === "ward"){
 					req.cdata.data = req.cdata.data.filter((datum)=>{
-						return datum.value == req.query.ward;
+						return datum.ward_no == req.query.ward;
 					});
 				}else{
 					const filterAsObject = JSON.parse(req.query[possibleFilter.parameter_name]);
