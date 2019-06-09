@@ -192,6 +192,7 @@ export default {
 			let maxValue=0;
 			data.forEach((datum)=>{
 				if(datum.properties.tags[tag] && Number(datum.properties.tags[tag])>maxValue){
+					console.log("datum.properties.tags[tag]",datum.properties.tags[tag])
 					maxValue=Number(datum.properties.tags[tag]);
 				}
 			});

@@ -221,12 +221,6 @@
 			"type": "single-select",
 			"parameter_name": "ward"
 		}, {
-			"label": "Select Bed Capacity",
-			"type": "range",
-			"parameter_name": "Bed Capacity",
-			"database_schema_key": "bed_count",
-			"isInsight": true
-		}, {
 			"label": "Employees",
 			"type": "range",
 			"parameter_name": "Employees",
