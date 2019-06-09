@@ -286,6 +286,37 @@
     "groupTitle": "Amenities"
   },
   {
+    "type": "get",
+    "url": "/api/amenities/tags",
+    "title": "Get amenities tags list",
+    "name": "Get_amenities_tags_list",
+    "group": "Amenities",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Success status</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "obj",
+            "optional": false,
+            "field": "object",
+            "description": "<p>Data object</p>"
+          }
+        ]
+      }
+    },
+    "description": "<p>API to get tags list for all amenities.</p>",
+    "version": "1.0.0",
+    "filename": "src/api/index.js",
+    "groupTitle": "Amenities"
+  },
+  {
     "type": "post",
     "url": "/api/users/authenticate",
     "title": "Authenticate user",
