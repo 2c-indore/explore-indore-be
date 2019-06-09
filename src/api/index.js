@@ -301,6 +301,21 @@ export default ({ config, db }) => {
 
 	api.get('/amenities/wards', amenities.getWards);
 
+     /**
+     * @api {get} /api/amenities/tags Get amenities tags list
+     * @apiName Get amenities tags list
+     * @apiGroup Amenities
+
+     * @apiSuccess {Integer} success Success status
+     * @apiSuccess {obj} object Data object
+
+     *
+     * @apiDescription API to get tags list for all amenities.
+     * @apiVersion 1.0.0
+     */
+
+     api.get("/amenities/tags", amenities.collect, amenities.allTags, mw.respond, mw.error);
+
 	// perhaps expose some API metadata at the root
 	api.get('/', (req, res) => {
 		res.json({ version });

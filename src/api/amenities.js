@@ -289,7 +289,7 @@ export default {
 			const opts = { fields };
 			try {
 			  const csv = parse(req.cdata, opts);
-			  res.setHeader('Content-disposition', 'attachment; filename='+req.collects.type+'.csv');
+			  res.setHeader('Content-disposition', 'attachment; filename=' + req.collects.type +'.csv');
 			  res.header("Content-Type",'application/csv');
 			  return res.send(csv);
 			} catch (err) {
@@ -300,5 +300,32 @@ export default {
 				});
 			}
 		}
+	},
+
+	allTags(req,res,next){
+		Features.find()
+		.select("type feature")
+		.then((features)=>{
+			const tags = features.reduce((obj,feature)=>{
+				if(!obj[feature.type]){
+					obj[feature.type]= Object.keys(feature.feature);
+				}else{
+					obj[feature.type] = obj[feature.type].concat(Object.keys(feature.feature).filter((tag)=>{
+						return obj[feature.type].indexOf(tag) === -1
+					}));
+				}
+				return obj;
+			},{});
+			req.cdata = {
+				success: 1,
+				data: tags
+			};
+			return next();
+		})
+		.catch((err)=>{
+			return next(err);
+		})
+
+
 	}
 }

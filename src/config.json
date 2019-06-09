@@ -30,6 +30,10 @@
 		"sheetName": "AYUSH",
 		"key": "public_clinics"
 	},{
+		"name": "Private Clinics",
+		"sheetName": "Clinics",
+		"key": "private_clinics"
+	},{
 		"name": "Public Hospitals",
 		"sheetName": "Primary HCS",
 		"key": "public_hospitals"
@@ -96,6 +100,17 @@
 			"boolean": true,
 			"parameter_name": "facilities"
 		}],
+		"private_clinics": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}, {
+			"label": "Employees",
+			"type": "range",
+			"parameter_name": "Employees",
+			"database_schema_key": "personnel_count",
+			"isInsight": true
+		}],
 		"public_clinics": [{
 			"label": "Select Ward",
 			"type": "single-select",
@@ -157,111 +172,7 @@
 			"boolean": true,
 			"parameter_name": "facilities"
 		}],
-		"Secondary HCS": [{
-			"label": "Select Ward",
-			"type": "single-select",
-			"parameter_name": "ward"
-		}, {
-			"label": "Employees",
-			"type": "range",
-			"parameter_name": "Employees",
-			"database_schema_key": "personnel_count",
-			"isInsight": true
-		}, {
-			"label": "Select Facilities",
-			"options": [{
-				"value": "Operation Theater",
-				"label": "Operation Theater",
-				"database_schema_key": "ot"
-			}, {
-				"value": "Ventilator",
-				"label": "Ventilator",
-				"database_schema_key": "ventilator"
-			}, {
-				"value": "Radiology",
-				"label": "Radiology",
-				"database_schema_key": "radiology_labs"
-			}, {
-				"value": "Pathology",
-				"label": "Pathology",
-				"database_schema_key": "pathology_labs"
-			}, {
-				"value": "Ambulance",
-				"label": "Ambulance",
-				"database_schema_key": "ambulance"
-			}, {
-				"value": "Blood bank",
-				"label": "Blood bank",
-				"database_schema_key": "blood_bank"
-			}],
-			"type": "multi-select",
-			"boolean": true,
-			"parameter_name": "facilities"
-		}],
-		"Tertiary HCS": [{
-			"label": "Select Ward",
-			"type": "single-select",
-			"parameter_name": "ward"
-		}, {
-			"label": "Employees",
-			"type": "range",
-			"parameter_name": "Employees",
-			"database_schema_key": "personnel_count",
-			"isInsight": true
-		}, {
-			"label": "Select Facilities",
-			"options": [{
-				"value": "Operation Theater",
-				"label": "Operation Theater",
-				"database_schema_key": "ot"
-			}, {
-				"value": "Ventilator",
-				"label": "Ventilator",
-				"database_schema_key": "ventilator"
-			}, {
-				"value": "Radiology",
-				"label": "Radiology",
-				"database_schema_key": "radiology_labs"
-			}, {
-				"value": "Pathology",
-				"label": "Pathology",
-				"database_schema_key": "pathology_labs"
-			}, {
-				"value": "Ambulance",
-				"label": "Ambulance",
-				"database_schema_key": "ambulance"
-			}, {
-				"value": "Blood bank",
-				"label": "Blood bank",
-				"database_schema_key": "blood_bank"
-			}],
-			"type": "multi-select",
-			"boolean": true,
-			"parameter_name": "facilities"
-		}],
-		"AYUSH": [{
-			"label": "Select Ward",
-			"type": "single-select",
-			"parameter_name": "ward"
-		}, {
-			"label": "Employees",
-			"type": "range",
-			"parameter_name": "Employees",
-			"database_schema_key": "personnel_count",
-			"isInsight": true
-		}],
 		"veterinaries": [{
-			"label": "Select Ward",
-			"type": "single-select",
-			"parameter_name": "ward"
-		}, {
-			"label": "Employees",
-			"type": "range",
-			"parameter_name": "Employees",
-			"database_schema_key": "personnel_count",
-			"isInsight": true
-		}],
-		"Clinics": [{
 			"label": "Select Ward",
 			"type": "single-select",
 			"parameter_name": "ward"
@@ -508,17 +419,6 @@
 			"type": "multi-select",
 			"boolean": true,
 			"parameter_name": "facilities"
-		}],
-		"IMC": [{
-			"label": "Select Ward",
-			"type": "single-select",
-			"parameter_name": "ward"
-		}, {
-			"label": "Employees",
-			"type": "range",
-			"parameter_name": "Employees",
-			"database_schema_key": "personnel_count",
-			"isInsight": true
 		}],
 		"bus_stops": [{
 			"label": "Select Ward",
