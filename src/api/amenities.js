@@ -103,7 +103,7 @@ export default {
 							if(filterAsObject[option.value]){
 								if(filterAsObject[option.value] == true){
 									req.cdata.data = req.cdata.data.filter((datum)=>{
-										return datum[option.database_schema_key] == "yes" || !datum[option.database_schema_key] ;
+										return datum[option.database_schema_key] != "no" || !datum[option.database_schema_key] ;
 									});
 								}
 							}
