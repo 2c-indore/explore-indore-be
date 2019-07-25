@@ -307,7 +307,7 @@ export default {
 		Features.find()
 		.select("type feature")
 		.then((features)=>{
-			const tags = features.reduce((obj,feature)=>{
+			let tags = features.reduce((obj,feature)=>{
 				if(!obj[feature.type]){
 					obj[feature.type]= Object.keys(feature.feature);
 				}else{
@@ -317,6 +317,14 @@ export default {
 				}
 				return obj;
 			},{});
+
+			tags = Object.keys(tags).map((tag)=>{
+				return {
+					amenity: tag,
+					tags: tags[tag]
+				}
+			});
+
 			req.cdata = {
 				success: 1,
 				data: tags
