@@ -325,6 +325,15 @@ export default {
 				}
 			});
 
+			// exlude some non-editable tags
+
+			tags.forEach((amenity)=>{
+				const excludedTags = ["amenity","precision","latitude","longitude","ward","ward_no","_poi_precision","type","ward_name","username","deviceid","poi"];
+				amenity.tags = amenity.tags.filter((tag)=>{
+					return excludedTags.indexOf(tag) === -1;
+				})
+			});
+
 			req.cdata = {
 				success: 1,
 				data: tags
