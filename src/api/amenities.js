@@ -334,6 +334,29 @@ export default {
 				})
 			});
 
+			//sort tags according to their weights
+
+			const tagSortingWeightOrder = [
+				"name",
+				"name_hindi",
+				"address",
+				"email",
+				"phone",
+				"opening_hours",
+				"personnel_count",
+				"operator_type",
+				"operation_theatre",
+				"ventilator"
+			];
+
+			tags.forEach((amenity)=>{
+				amenity.tags = amenity.tags.sort((a,b)=>{
+					const weightA = tagSortingWeightOrder.indexOf(a) != -1 ? tagSortingWeightOrder.indexOf(a) : (tagSortingWeightOrder.length + 1);
+					const weightB = tagSortingWeightOrder.indexOf(b) != -1 ? tagSortingWeightOrder.indexOf(b) : (tagSortingWeightOrder.length + 1);
+					return weightA - weightB;
+				})
+			})
+
 			req.cdata = {
 				success: 1,
 				data: tags
