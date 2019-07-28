@@ -287,7 +287,7 @@ export default ({ config, db }) => {
 
      * @apiSuccessExample {json} Body Parameters Format
      *  {
-     *      "data" : JSON object
+     *      "data" : JSON object of whole data element (changed+unchanged).
      *  }
      *
      *
@@ -297,6 +297,33 @@ export default ({ config, db }) => {
      */
 	
 	api.put("/amenities/update/:id",expressJwt({secret: secretConfig.jwt.secret}),amenities.collect,amenities.update,mw.respond,mw.error);
+
+     /**
+     * @api {put} /api/amenities/update/mobile/:id Edit amenities for mobile application [*Protected]
+     * @apiName Edit amenities - Mobile
+     * @apiGroup Amenities
+
+     * @apiSuccess {Integer} success Success status
+     * @apiSuccess {string} message Success message
+     
+      * @apiSuccessExample {json} Route Parameters Format
+      *  {
+      *      "id": "2csdekoploer"
+      *  }
+      *
+
+     * @apiSuccessExample {json} Body Parameters Format
+     *  {
+     *      "data" : JSON object of changed data element.
+     *  }
+     *
+     *
+     *
+     * @apiDescription API to update data element for mobile app.
+     * @apiVersion 1.0.0
+     */
+     
+     api.put("/amenities/update/mobile/:id",amenities.collect,amenities.updateMobile,mw.respond,mw.error);
 
 
 	api.get('/amenities/wards', amenities.getWards);

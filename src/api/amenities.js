@@ -264,6 +264,43 @@ export default {
 		});
 	},
 
+	updateMobile(req,res,next){
+		const err = proc.utils.required(req.collects, ["id","data"]);
+		if (err) return next(err);
+
+		const data = typeof req.collects.data === "object" ? req.collects.data : JSON.parse(req.collects.data);
+
+		Features.findOne({
+			_id: req.collects.id
+		})
+		.then((feature)=>{
+			const previousData = feature.feature;
+			for(let tag in previousData){
+				if(data[tag]){
+					previousData[tag] = data[tag];
+				}
+			}
+			return Features.update({
+				_id: req.collects.id
+			}, {
+				feature: previousData
+			})
+		})
+		.then((updated) => {
+			req.cdata = {
+				success: 1,
+				message: "Data successfully updated!"
+			};
+			return next();
+		})
+		.catch((err)=>{
+			return next(err);
+		});
+
+	
+
+	},
+
 	flattenGeojson(req,rex,next){
 		req.cdata = req.cdata.geometries.pois.features.map((feature)=>{
 			const featureObject = feature.properties.tags;

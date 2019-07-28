@@ -237,12 +237,55 @@ define({ "api": [
         },
         {
           "title": "Body Parameters Format",
-          "content": "{\n    \"data\" : JSON object\n}",
+          "content": "{\n    \"data\" : JSON object of whole data element (changed+unchanged).\n}",
           "type": "json"
         }
       ]
     },
     "description": "<p>API to update data element.</p>",
+    "version": "1.0.0",
+    "filename": "src/api/index.js",
+    "groupTitle": "Amenities"
+  },
+  {
+    "type": "put",
+    "url": "/api/amenities/update/mobile/:id",
+    "title": "Edit amenities for mobile application [*Protected]",
+    "name": "Edit_amenities___Mobile",
+    "group": "Amenities",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "success",
+            "description": "<p>Success status</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success message</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Route Parameters Format",
+          "content": "{\n    \"id\": \"2csdekoploer\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Body Parameters Format",
+          "content": "{\n    \"data\" : JSON object of changed data element.\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "description": "<p>API to update data element for mobile app.</p>",
     "version": "1.0.0",
     "filename": "src/api/index.js",
     "groupTitle": "Amenities"
