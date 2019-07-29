@@ -27,7 +27,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Body Parameters Format",
-          "content": "{\n    \"email\" : \"email@email.com\",\n    \"name\" : \"John Doe\"\n}",
+          "content": "{\n    \"email\" : \"email@email.com\",\n    \"name\" : \"John Doe\",\n    \"organization_name\": \"Organization Name\",\n    \"referred_by\": \"Referred by\"\n}",
           "type": "json"
         },
         {

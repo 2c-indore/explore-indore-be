@@ -53,7 +53,9 @@ export default ({ config, db }) => {
      * @apiSuccessExample {json} Body Parameters Format
      *  {
      *      "email" : "email@email.com",
-     *      "name" : "John Doe"
+     *      "name" : "John Doe",
+     *      "organization_name": "Organization Name",
+     *      "referred_by": "Referred by"
      *  }
      *
      * @apiSuccessExample {json} Success-Response:

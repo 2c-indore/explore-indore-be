@@ -7,7 +7,7 @@ import generatePassword from "generate-password";
 import { Users } from "../mongomodels";
 import jwt from "jsonwebtoken";
 
-let fields = ["id","email", "password", "verificationCode", "name", "newpassword", "oldpassword"];
+let fields = ["id","email", "password", "verificationCode", "name", "newpassword", "oldpassword","organization_name","referred_by"];
 const saltRounds = 10;
 
 export default {
@@ -228,7 +228,9 @@ export default {
 					email: req.collects.email,
 					name: req.collects.name,
 					password: generatedPassword,
-					is_verified: true
+					is_verified: true,
+					organization_name: req.collects.organization_name,
+					referred_by: req.collects.referred_by
 				})
 				return newUser.save();
 			})

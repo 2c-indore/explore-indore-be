@@ -12,6 +12,14 @@ const usersSchema = mongoose.Schema({
 		type: String,
 		default: "general"
 	},
+	organization_name: {
+		type: String,
+		default: null
+	},
+	referred_by: {
+		type: String,
+		default: null
+	},
 	verification_code: Number,
 	is_verified: {
 		type: Boolean,
