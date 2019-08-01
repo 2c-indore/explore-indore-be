@@ -286,7 +286,7 @@ export default {
 					previousData[tag] = data[tag];
 				}
 			}
-			return Features.update({
+			return Features.updateOne({
 				_id: req.collects.id
 			}, {
 				feature: previousData
