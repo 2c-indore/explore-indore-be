@@ -325,7 +325,7 @@ export default ({ config, db }) => {
      * @apiVersion 1.0.0
      */
      
-     api.put("/amenities/update/mobile/:id",amenities.collect,amenities.updateMobile,mw.respond,mw.error);
+     api.put("/amenities/update/mobile/:id",expressJwt({secret: secretConfig.jwt.secret}),amenities.collect,amenities.updateMobile,mw.respond,mw.error);
 
 
 	api.get('/amenities/wards', amenities.getWards);

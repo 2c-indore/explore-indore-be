@@ -280,6 +280,12 @@ export default {
 					previousData[tag] = data[tag];
 				}
 			}
+			// add new tags in the data collection if the tag was missing previously. i.e support for adding data for missing tags.
+			for(let tag in data){
+				if(!previousData[tag]){
+					previousData[tag] = data[tag];
+				}
+			}
 			return Features.update({
 				_id: req.collects.id
 			}, {
