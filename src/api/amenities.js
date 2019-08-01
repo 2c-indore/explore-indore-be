@@ -377,14 +377,36 @@ export default {
 				})
 			});
 
-			//sort tags according to their weights
+			//attach common fields to all amenities
 
+			const commonFields = [
+				"name",
+				"name_hindi",
+				"address",
+				"phone",
+				"mobile",
+				"website",
+				"email",
+				"opening_hours"
+			];
+
+			tags.forEach((amenity)=>{
+				commonFields.forEach((field)=>{
+					if(amenity.tags.indexOf(field) === -1){
+						amenity.tags.push(field);
+					}
+				})
+			})
+
+			//sort tags according to their weights
 			const tagSortingWeightOrder = [
 				"name",
 				"name_hindi",
 				"address",
 				"email",
 				"phone",
+				"mobile",
+				"website",
 				"opening_hours",
 				"personnel_count",
 				"operator_type",
@@ -398,7 +420,7 @@ export default {
 					const weightB = tagSortingWeightOrder.indexOf(b) != -1 ? tagSortingWeightOrder.indexOf(b) : (tagSortingWeightOrder.length + 1);
 					return weightA - weightB;
 				})
-			})
+			});
 
 			req.cdata = {
 				success: 1,
