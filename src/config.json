@@ -13,18 +13,6 @@
 		"name": "Veterinaries",
 		"sheetName": "Veterinary",
 		"key": "veterinaries"
-	}, {
-		"name": "Bus Stops",
-		"sheetName": "Bus Stop",
-		"key": "bus_stops"
-	}, {
-		"name": "Public Clinics and Government Centers",
-		"sheetName": "Tertiary HCS",
-		"key": "public_clinics"
-	},{
-		"name": "Public Clinics and Government Centers",
-		"sheetName": "Secondary HCS",
-		"key": "public_clinics"
 	},{
 		"name": "Public Clinics and Government Centers",
 		"sheetName": "AYUSH",
@@ -54,13 +42,13 @@
 		"sheetName": "Labs",
 		"key": "patho_radio_labs"
 	}, {
-		"name": "Blood Banks",
-		"sheetName": "Blood Bank",
-		"key": "blood_banks"
-	}, {
 		"name": "Anganwadis",
 		"sheetName": "Aanganwadi",
 		"key": "anganwadi"
+	},{
+		"name": "Pharmacy",
+		"sheetName": "Pharmacy",
+		"key": "pharmacies"
 	}],
 	"parameters": {
 		"public_hospitals": [{
