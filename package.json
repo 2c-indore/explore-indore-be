@@ -48,7 +48,7 @@
     "google-spreadsheet-to-json": "^1.0.0",
     "json2csv": "^4.5.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.5.11",
+    "mongoose": "^5.7.5",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.8.0",
     "nodemailer": "^6.2.1",
