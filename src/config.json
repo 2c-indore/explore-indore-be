@@ -49,6 +49,34 @@
 		"name": "Pharmacy",
 		"sheetName": "Pharmacy",
 		"key": "pharmacies"
+	},{
+		"name": "ATMs",
+		"sheetName": "ATMs",
+		"key": "atms"
+	},{
+		"name": "Public Washrooms",
+		"sheetName": "Public Washrooms",
+		"key": "public_washrooms"
+	},{
+		"name": "Public Waste Bins",
+		"sheetName": "Public Waste Bins",
+		"key": "public_waste_bins"
+	},{
+		"name": "Fuel Stations",
+		"sheetName": "Fuel Stations",
+		"key": "fuel_stations"
+	},{
+		"name": "Bus Stops",
+		"sheetName": "Bus Stops",
+		"key": "bus_stops"
+	},{
+		"name": "Public Schools",
+		"sheetName": "Public Schools",
+		"key": "public_schools"
+	},{
+		"name": "Private Schools",
+		"sheetName": "Private Schools",
+		"key": "private_schools"
 	}],
 	"parameters": {
 		"public_hospitals": [{
@@ -422,6 +450,46 @@
 			"parameter_name": "facilities"
 		}],
 		"mental_health_centers": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"pharmacies": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"atms": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"public_washrooms": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"public_waste_bins": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"fuel_stations": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"bus_stops": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"public_schools": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"private_schools": [{
 			"label": "Select Ward",
 			"type": "single-select",
 			"parameter_name": "ward"
