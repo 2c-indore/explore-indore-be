@@ -2,6 +2,7 @@ import { path as appRootPath } from "app-root-path";
 import { Features } from "../mongomodels";
 import proc from "proc-utils";
 import { sanitize } from "google-caja";
+import fs from "fs";
 
 const { parse } = require('json2csv');
 const config = require("../config.json");
@@ -317,33 +318,40 @@ export default {
 	},
 
 	download(req,res,next){
-		const err = proc.utils.required(req.collects, ["outputFormat"]);
-		if (err) return next(err);
-		if(req.collects.outputFormat === "json"){
-			res.setHeader('Content-disposition', 'attachment; filename='+req.collects.type+'.json');
-			res.header("Content-Type",'application/json');
-			return res.send(JSON.stringify(req.cdata));
-		}else{
-			const fields = Array.from(req.cdata.reduce((set, obj)=>{
-				Object.keys(obj).forEach((key)=>{
-					set.add(key);
-				})
-				return set;
-			},new Set([])));
-			const opts = { fields };
-			try {
-			  const csv = parse(req.cdata, opts);
-			  res.setHeader('Content-disposition', 'attachment; filename=' + req.collects.type +'.csv');
-			  res.header("Content-Type",'application/csv');
-			  return res.send(csv);
-			} catch (err) {
-				console.log(err)
-				res.json({
-					success:0,
-					message:err
-				});
+		const filename = new Date().getTime();
+		const fields = Array.from(req.cdata.reduce((set, obj)=>{
+			Object.keys(obj).forEach((key)=>{
+				set.add(key);
+			})
+			return set;
+		},new Set([])));
+		const opts = { fields };
+		const csv = parse(req.cdata, opts);
+		fs.writeFile(`${appRootPath}/extracts/` + filename + ".csv", csv, (err)=>{
+			if(err){
+				req.cdata = {
+					success: 0,
+					message: err
+				};
+				return next();
 			}
-		}
+			const jsonObj = JSON.stringify(req.cdata);
+			fs.writeFile(`${appRootPath}/extracts/`+ filename + ".json", jsonObj, "utf8",(err, jsonResponse)=> {
+				if(err){
+					req.cdata = {
+						success: 0,
+						message: err
+					};
+				}else{
+					req.cdata = {
+						success: 1,
+						csvlink: "extracts/" + filename + ".csv",
+						geojsonlink: "extracts/" + filename + ".json"
+					};
+				}
+				return next();
+			});
+		});
 	},
 
 	allTags(req,res,next){
