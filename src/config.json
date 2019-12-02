@@ -77,6 +77,10 @@
 		"name": "Private Schools",
 		"sheetName": "Private Schools",
 		"key": "private_schools"
+	},{
+		"name": "Parks and Playgrounds",
+		"sheetName": "Parks and Playgrounds",
+		"key": "parks_playgrounds"
 	}],
 	"parameters": {
 		"public_hospitals": [{
@@ -490,6 +494,11 @@
 			"parameter_name": "ward"
 		}],
 		"private_schools": [{
+			"label": "Select Ward",
+			"type": "single-select",
+			"parameter_name": "ward"
+		}],
+		"parks_playgrounds": [{
 			"label": "Select Ward",
 			"type": "single-select",
 			"parameter_name": "ward"
