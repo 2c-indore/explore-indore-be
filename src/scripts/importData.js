@@ -11,7 +11,7 @@ const amenities = config.amenities;
 
 const combinedAmenites = ['public_clinics'];
 const accumulator = {};
-const callRate = 5000; // delay consecutive request by this much seconds. Just to ensure that there is certain time gap between consecutive API request
+const callRate = 2000; // delay consecutive request by this much seconds. Just to ensure that there is certain time gap between consecutive API request
 
 function asyncFunction(amenity, cb) {
 	console.log(`Waiting for ${callRate/1000} seconds.... -`, amenity.sheetName);
