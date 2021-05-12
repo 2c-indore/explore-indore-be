@@ -51,7 +51,7 @@
     "mongoose": "^5.5.11",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.8.0",
-    "nodemailer": "^6.2.1",
+    "nodemailer": "^6.4.16",
     "proc-utils": "^1.0.0",
     "resource-router-middleware": "^0.6.0",
     "template-notify": "0.0.4"
