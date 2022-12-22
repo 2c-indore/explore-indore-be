@@ -47,7 +47,7 @@
     "google-caja": "0.0.2",
     "google-spreadsheet-to-json": "^1.0.0",
     "json2csv": "^4.5.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.5.11",
     "mongoose-timestamp": "^0.6.0",
     "morgan": "^1.8.0",
